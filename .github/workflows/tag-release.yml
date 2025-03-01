@@ -9,9 +9,9 @@ jobs:
   tag:
     runs-on: ubuntu-latest
 
-    env:
-      GIT_USER_EMAIL: ${{ secrets._GIT_USER_EMAIL }}
-      GIT_USER_NAME: ${{ secrets._GIT_USER_NAME }}
+    # env:
+    #   GIT_USER_EMAIL: ${{ secrets._GIT_USER_EMAIL }}
+    #   GIT_USER_NAME: ${{ secrets._GIT_USER_NAME }}
 
     steps:
     - name: Checkout repository
@@ -23,11 +23,16 @@ jobs:
         VERSION=$(python setup.py --version)
         echo "::set-output name=VERSION::$VERSION"
 
-    - name: Set Git user
-      run: |
-        git config --global user.email "${{ env.GIT_USER_EMAIL }}"
-        git config --global user.name "${{ env.GIT_USER_NAME }}"
+    # - name: Set Git user
+    #   run: |
+    #     git config --global user.email "${{ env.GIT_USER_EMAIL }}"
+    #     git config --global user.name "${{ env.GIT_USER_NAME }}"
 
+    - name: Configure Git Credentials
+      run: |
+        git config user.name github-actions[bot]
+        git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+        
     - name: Create Tag
       id: tag
       run: |

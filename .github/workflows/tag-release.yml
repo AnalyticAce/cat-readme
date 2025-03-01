@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
-      GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
+      GIT_USER_EMAIL: ${{ secrets._GIT_USER_EMAIL }}
+      GIT_USER_NAME: ${{ secrets._GIT_USER_NAME }}
 
     steps:
     - name: Checkout repository

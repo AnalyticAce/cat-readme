@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='cat-readme',
-    version='0.1.0',
+    version='0.1.1',
     author='DOSSEH Shalom',
     author_email='dossehdosseh14@gmail.com',
     description='A command-line tool to display markdown files with rich formatting.',

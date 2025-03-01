@@ -9,6 +9,10 @@ jobs:
   tag:
     runs-on: ubuntu-latest
 
+    env:
+      GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
+      GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -18,6 +22,11 @@ jobs:
       run: |
         VERSION=$(python setup.py --version)
         echo "::set-output name=VERSION::$VERSION"
+
+    - name: Set Git user
+      run: |
+        git config --global user.email "${{ env.GIT_USER_EMAIL }}"
+        git config --global user.name "${{ env.GIT_USER_NAME }}"
 
     - name: Create Tag
       id: tag

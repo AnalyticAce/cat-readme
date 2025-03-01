@@ -11,7 +11,7 @@ pip install cat-readme
 ## Usage
 
 ```bash
-python cli.py [README_FILE]
+cat-readme [README_FILE]
 ```
 
 ### Arguments
